@@ -40,18 +40,11 @@ $("#cvv").parent().append(validationErrorCvv);
 $("#title").on("change", function(e) {
     // check if selected option equals "other"
     if (e.target.value === "other") {
-        // create blueprint for input element
-        var jobRoleInput = `<input type="text" id="other-title" name="user_other_title" placeholder="Your Job Role">`;
-        // insert the input element after the select with the id "title"
-        $(jobRoleInput).insertAfter($("#title"));
+        // show the element with the id "other-title"
+        $("#other-title").show();
     } else {
-        // get input element with the id "other-title"
-        var otherTitle = $("#other-title");
-        // check if the element exists
-        if (otherTitle) {
-            // remove the element
-            $("#other-title").remove();
-        }
+        // hide the element with the id "other-title"
+        $("#other-title").hide();
     }
 });
 
@@ -399,6 +392,8 @@ function validatePaymentInfo(input, min, max) {
 document.addEventListener("DOMContentLoaded", function() {
     // focus name input field
     $("#name").focus();
+    // hide the element with the id "other-title"
+    $("#other-title").hide();
     // hide color dropdown
     $("#colors-js-puns").hide();
     // sort colors
